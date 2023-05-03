@@ -1,15 +1,17 @@
 import express from "express";
 import dotenv from 'dotenv'
 import conectarDB from "./config/db.js";
+import routerVeterinario from './routes/veterinarioRoutes.js'
 
 const app = express()
+
+app.use(express.json())
+
 dotenv.config()
 
 conectarDB()
 
-app.use('/', (req, res) => {
-    res.send('Holisss')
-})
+app.use("/api/veterinarios", routerVeterinario)
 
 const PORT = process.env.POR || 4000
 
