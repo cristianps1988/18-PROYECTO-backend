@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from 'dotenv'
 import conectarDB from "./config/db.js";
 import routerVeterinario from './routes/veterinarioRoutes.js'
+import routerPaciente from './routes/pacienteRoutes.js'
 
 const app = express()
 
@@ -12,6 +13,7 @@ dotenv.config()
 conectarDB()
 
 app.use("/api/veterinarios", routerVeterinario)
+app.use("/api/pacientes", routerPaciente)
 
 const PORT = process.env.POR || 4000
 
